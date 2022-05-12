@@ -8,8 +8,9 @@ use App\Services\AuthService;
 use App\Http\Requests\Auth\Login;
 use App\Http\Requests\Auth\Signup;
 use App\Http\Resources\User\Resource;
+use App\Http\Requests\Auth\ResetPassword;
 use App\Http\Requests\Auth\ForgetPassword;
-
+use App\Http\Requests\Auth\ChangePassword;
 class AuthController extends Controller
 {
     use ApiResponser;
@@ -43,6 +44,18 @@ class AuthController extends Controller
     public function forgetpassword(ForgetPassword $request)
     {
         $data = $this->service->forgetpassword($request->all());
+        return $data;
+    }
+
+    public function resetpassword(ResetPassword $request)
+    {
+        $data = $this->service->resetpassword($request->all());
+        return $data;
+    }
+
+    public function changepassword(ChangePassword $request)
+    {
+        $data = $this->service->changepassword($request->all());
         return $data;
     }
 }

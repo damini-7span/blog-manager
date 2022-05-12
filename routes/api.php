@@ -18,8 +18,9 @@ use App\Http\Controllers\AuthController;
 Route::post('signup', [AuthController::class, 'signup']);
 Route::post('login', [AuthController::class, 'login']);
 Route::post('forget-password', [AuthController::class, 'forgetpassword']);
+Route::post('reset-password', [AuthController::class, 'resetpassword']);
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::post('change-password', [AuthController::class, 'changepassword']);
 });

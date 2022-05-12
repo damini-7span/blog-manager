@@ -4,7 +4,7 @@
 </head>
 <body>
     <h1>Forget Password</h1>
-    <p>Code</p>
+    <p>Code : {{ $data['code'] }} </p>
    
     <p>Thank you</p>
 </body>
