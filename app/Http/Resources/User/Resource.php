@@ -9,7 +9,7 @@ class Resource extends JsonResource
 {
     use ResourceFilterable;
     protected $model = 'User';
- 
+
     public function toArray($request)
     {
         $data = $this->fields();

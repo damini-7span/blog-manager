@@ -14,6 +14,4 @@ class UserOtp extends Model
         'code',
         'email',
     ];
-
-
 }

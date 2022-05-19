@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Traits\BaseModel;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;  
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -36,9 +36,11 @@ class User extends Authenticatable
         'id'
     ];
 
-    public function relationships()
+    protected $relationship = [];
+
+    public function relationship()
     {
-        return $this->relationships;
+        return $this->relationship;
     }
 
     public function setPasswordAttribute($password)

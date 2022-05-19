@@ -30,7 +30,7 @@ class AuthService
     {
         $userData = Arr::except($inputs, ['confirm_password']);
         $user = $this->user->create($userData);
-        $user->assignRole('user');  
+        $user->assignRole('user');
         return $user;
     }
 

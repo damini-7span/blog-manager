@@ -3,9 +3,9 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ForgetPassword extends Mailable
 {
@@ -29,6 +29,6 @@ class ForgetPassword extends Mailable
     public function build()
     {
         return $this->subject('Mail from 7Span')
-                    ->markdown('ForgetPassword', ['data' => $this->data]);
+            ->markdown('ForgetPassword', ['data' => $this->data]);
     }
 }

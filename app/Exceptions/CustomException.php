@@ -3,7 +3,6 @@
 namespace App\Exceptions;
 
 use Exception;
-
 class CustomException extends Exception
 {
     public $message;
@@ -14,7 +13,7 @@ class CustomException extends Exception
         $this->message = $message;
         $this->code = $code;
     }
-    
+
     public function report()
     {
         return '';

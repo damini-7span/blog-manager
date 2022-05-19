@@ -17,6 +17,3 @@ class userOtpService
         return $userotp;
     }
 }
-
-
-?>

@@ -13,8 +13,8 @@ trait ResourceFilterable
   {
 
     return collect($this->prepareResponse())
-          ->only(array_keys($this->resource->getAttributes()))
-          ->toArray();
+      ->only(array_keys($this->resource->getAttributes()))
+      ->toArray();
   }
 
   protected function prepareResponse()
