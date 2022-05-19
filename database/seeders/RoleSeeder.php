@@ -18,10 +18,12 @@ class RoleSeeder extends Seeder
     {
         Role::insert([
             [
-                "name" => "admin"
+                "name" => "admin",
+                "guard_name" => "api"
             ],
             [
-                "name" => "user"
+                "name" => "user",
+                "guard_name" => "api"
             ]
         ]);
     }
