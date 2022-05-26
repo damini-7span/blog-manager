@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Illuminate\Support\Facades\Auth;
 
 class UserPolicy
 {
@@ -12,8 +11,8 @@ class UserPolicy
 
     public function before(User $user)
     {
-        if ($user->hasRole('admin')) {
-            
+        if ($user->hasRole('admin')) 
+        {
             return true;
         }
     }

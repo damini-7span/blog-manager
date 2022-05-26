@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
 use App\Services\Admin\UserService;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\User\Resource;
 use App\Http\Resources\User\Collection;
 
 class UserController extends Controller
@@ -18,7 +18,7 @@ class UserController extends Controller
     public function __construct(UserService $service)
     {
         $this->service = $service;
-        // $this->authorizeResource(User::class, 'user');
+        $this->authorizeResource(User::class, 'user');
     }
 
     public function index(Request $request)
@@ -32,9 +32,10 @@ class UserController extends Controller
         //
     }
 
-    public function show($id)
+    public function show(User $user, Request $request)
     {
-        //
+        $user = $this->service->resource($user->id);
+        return $this->resource(new Resource($user));
     }
 
     public function update(Request $request, $id)
