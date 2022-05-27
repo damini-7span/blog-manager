@@ -48,7 +48,9 @@ class userService
         if (isset($inputs['avatar'])) {
             $media = MediaUploader::fromSource($inputs['avatar'])
                 ->toDestination(config('mediable.default_disk'), $location)
-                ->upload();
+                ->setAllowedAggregateTypes(['image'])
+                ->setMaximumSize(99999)
+                ->upload(); 
 
             $user->syncmedia($media, 'avatar');
         }
