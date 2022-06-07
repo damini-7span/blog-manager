@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
-use App\Services\Admin\UserService;
+use App\Services\UserService;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\User\Resource;
 use App\Http\Resources\User\Collection;
+use App\Http\Requests\UserProfile\Upsert;
 
 class UserController extends Controller
 {
@@ -46,5 +48,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function userProfile(Upsert $request)
+    {
+        $user = $this->service->update(Auth::user()->id, $request->all());
+        return $this->resource(new Resource($user));
     }
 }

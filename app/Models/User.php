@@ -38,11 +38,20 @@ class User extends Authenticatable
         'id'
     ];
 
-    protected $relationship = [];
+    protected $relationship = [
+        'posts' => [
+            'model' => 'App\Models\Post',
+        ],
+    ];
 
     public function relationship()
     {
         return $this->relationship;
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 
     public function setPasswordAttribute($password)

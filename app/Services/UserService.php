@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Admin;
+namespace App\Services;
 
 use App\Models\User;
 use GuzzleHttp\Psr7\Request;
@@ -9,7 +9,6 @@ use Plank\Mediable\Facades\MediaUploader;
 
 class userService
 {
-
     public $user;
 
     public function __construct(User $user)
@@ -50,7 +49,7 @@ class userService
                 ->toDestination(config('mediable.default_disk'), $location)
                 ->setAllowedAggregateTypes(['image'])
                 ->setMaximumSize(99999)
-                ->upload(); 
+                ->upload();
 
             $user->syncmedia($media, 'avatar');
         }

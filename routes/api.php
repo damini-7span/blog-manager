@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\User\UserController as UserUserController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +26,6 @@ Route::post('reset-password', [AuthController::class, 'resetpassword']);
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('change-password', [AuthController::class, 'changepassword']);
     Route::apiResource('users', UserController::class);
-    Route::post('userProfile', [UserUserController::class, 'userProfile']);
+    Route::post('userProfile', [UserController::class, 'userProfile']);
+    Route::apiResource('posts', PostController::class);
 });
